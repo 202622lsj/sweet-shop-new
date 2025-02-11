@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>from 超级喜欢小甜的小罗</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧分类菜单 -->
+        <div class="category-menu">
+            <div class="category-item active">小甜宝贝专属</div>
+            <div class="category-item">光与夜之恋联名</div>
+            <div class="category-item">生日蛋糕</div>
+        </div>
+        
+        <!-- 右侧商品列表 -->
+        <div class="product-list">
+            <div class="product-item">
+                <img src="picture/比个耶.jpg" alt="比个耶" class="product-img">
+                <div class="product-info">
+                    <h3>比个耶</h3>
+                    <p class="description">可爱熊熊系列</p>
+                    <div class="price-action">
+                        <span class="price">¥0.01</span>
+                        <button class="add-to-cart" onclick="addToCart('product1')">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-item">
+                <img src="picture/吃饭饭.jpg" alt="吃饭饭" class="product-img">
+                <div class="product-info">
+                    <h3>吃饭饭</h3>
+                    <p class="description">可爱熊熊系列</p>
+                    <div class="price-action">
+                        <span class="price">¥0.01</span>
+                        <button class="add-to-cart" onclick="addToCart('product2')">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-item">
+                <img src="picture/打游戏.jpg" alt="打游戏" class="product-img">
+                <div class="product-info">
+                    <h3>打游戏</h3>
+                    <p class="description">可爱熊熊系列</p>
+                    <div class="price-action">
+                        <span class="price">¥0.01</span>
+                        <button class="add-to-cart" onclick="addToCart('product3')">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-item">
+                <img src="picture/回家.jpg" alt="回家" class="product-img">
+                <div class="product-info">
+                    <h3>回家</h3>
+                    <p class="description">可爱熊熊系列</p>
+                    <div class="price-action">
+                        <span class="price">¥0.01</span>
+                        <button class="add-to-cart" onclick="addToCart('product4')">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-item">
+                <img src="picture/拍美美照.jpg" alt="拍美美照" class="product-img">
+                <div class="product-info">
+                    <h3>拍美美照</h3>
+                    <p class="description">可爱熊熊系列</p>
+                    <div class="price-action">
+                        <span class="price">¥0.01</span>
+                        <button class="add-to-cart" onclick="addToCart('product5')">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-item">
+                <img src="picture/亲亲.jpg" alt="亲亲" class="product-img">
+                <div class="product-info">
+                    <h3>亲亲</h3>
+                    <p class="description">可爱熊熊系列</p>
+                    <div class="price-action">
+                        <span class="price">¥0.01</span>
+                        <button class="add-to-cart" onclick="addToCart('product6')">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-item">
+                <img src="picture/睡觉觉.jpg" alt="睡觉觉" class="product-img">
+                <div class="product-info">
+                    <h3>睡觉觉</h3>
+                    <p class="description">可爱熊熊系列</p>
+                    <div class="price-action">
+                        <span class="price">¥0.01</span>
+                        <button class="add-to-cart" onclick="addToCart('product7')">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-item">
+                <img src="picture/洗澡澡.jpg" alt="洗澡澡" class="product-img">
+                <div class="product-info">
+                    <h3>洗澡澡</h3>
+                    <p class="description">可爱熊熊系列</p>
+                    <div class="price-action">
+                        <span class="price">¥0.01</span>
+                        <button class="add-to-cart" onclick="addToCart('product8')">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 在购物车悬浮按钮后添加购物车详情面板 -->
+    <div class="cart-panel" id="cartPanel" style="display: none;">
+        <div class="cart-header">
+            <h3>购物车</h3>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- 这里将动态插入购物车商品 -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>合计：</span>
+                <span class="total-price" id="cartPanelTotal">¥0</span>
+            </div>
+            <button class="checkout-btn" onclick="showCheckout()">去结算</button>
+        </div>
+    </div>
+
+    <!-- 修改购物车悬浮按钮，添加点击事件 -->
+    <div class="cart-float" id="cartFloat" onclick="toggleCart()">
+        <span class="cart-count" id="cartCount">0</span>
+        <div class="cart-total">
+            <span>合计：</span>
+            <span class="total-price" id="totalPrice">¥0</span>
+        </div>
+        <button class="checkout-btn" onclick="showCheckout()">去结算</button>
+    </div>
+
+    <!-- 支付模态框 -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <h2>确认订单</h2>
+            <div class="order-items" id="orderItems">
+                <!-- 这里将动态插入订单项 -->
+            </div>
+            <div class="payment-info">
+                <div class="total">应付金额：<span id="modalTotalPrice">¥0</span></div>
+                <div class="payment-methods">
+                    <label>
+                        <input type="radio" name="payment" value="weixin" checked>
+                        <img src="images/wechat_icon.png" class="payment-icon" alt="微信支付">
+                        微信支付
+                    </label>
+                    <label>
+                        <input type="radio" name="payment" value="alipay">
+                        <img src="images/alipay_icon.png" class="payment-icon" alt="支付宝">
+                        支付宝支付
+                    </label>
+                </div>
+                <!-- 添加二维码容器 -->
+                <div id="qrCodeContainer" style="display: none; text-align: center;">
+                    <img id="wechatQR" src="images/wechat_qr.jpg" alt="微信支付" style="max-width: 200px; display: none;">
+                    <img id="alipayQR" src="images/alipay_qr.jpg" alt="支付宝支付" style="max-width: 200px; display: none;">
+                    <div class="payment-tips">
+                        <p>请使用手机扫描二维码完成支付</p>
+                        <p class="payment-amount"></p>
+                    </div>
+                    <button id="paymentComplete" onclick="completePayment()" style="display: none;" class="confirm-pay">
+                        我已完成支付
+                    </button>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button onclick="hideCheckout()">取消</button>
+                <button class="confirm-pay" onclick="goToPay()">确认支付</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 修改二维码显示部分 -->
+    <div class="qr-code-container">
+        <h3>扫码访问</h3>
+        <img id="pageQRCode" 
+             src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=您的新网站地址" 
+             alt="访问二维码">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
